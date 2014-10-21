@@ -3,10 +3,10 @@ package net.de1mos.jukebox.webclient;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class FailedTest {
+public class SuccessTest {
 
 	@Test
-	public void testFail() {
-		Assert.assertFalse(true);
+	public void testTrue() {
+		Assert.assertTrue(true);
 	}
 }
