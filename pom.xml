@@ -10,6 +10,9 @@
 		<module>parent</module>
 		<module>web-client</module>
 		<module>utils</module>
+		<module>media-player</module>
+		<module>playlist-controller</module>
+		<module>data-access</module>
 	</modules>
 
 	<properties>
