@@ -20,9 +20,6 @@ import com.googlecode.vkapi.HttpVkApi;
 
 @Controller
 public class HelloController {
-	
-	@Autowired
-	private static HttpVkApi vkApi;
 
 	@RequestMapping("/hello")
 	public String hello() {

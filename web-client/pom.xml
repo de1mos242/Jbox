@@ -60,19 +60,5 @@
 			<artifactId>jackson-datatype-joda</artifactId>
 			<version>2.4.3</version>
 		</dependency>
-
-		<dependency>
-			<groupId>ru.0agr</groupId>
-			<artifactId>vkontakte-http-api</artifactId>
-			<version>0.2</version>
-		</dependency>
-
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>java-vk-oauth20.googlecode.com</id>
-			<url>http://java-vk-oauth20.googlecode.com/svn/m2/releases</url>
-		</repository>
-	</repositories>
 </project>
