@@ -23,4 +23,6 @@
 	
 	<import resource="controllers.xml"/>
 	
+	<import resource="security.xml"/>
+	
 </beans>
