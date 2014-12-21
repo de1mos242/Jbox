@@ -2,10 +2,14 @@ package net.de1mos.jbox.playlist.entities;
 
 public class PlaylistItem {
 	
-	Song song;
+	private Song song;
 	
 	public PlaylistItem(Song song) {
 		this.song = song;
+	}
+
+	public Song getSong() {
+		return song;
 	}
 	
 }
