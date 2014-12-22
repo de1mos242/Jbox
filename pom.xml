@@ -13,6 +13,7 @@
 		<module>media-player</module>
 		<module>playlist-controller</module>
 		<module>data-access</module>
+		<module>vk-api-client</module>
 	</modules>
 
 	<properties>

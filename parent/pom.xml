@@ -81,4 +81,7 @@
 			<url>http://java-vk-oauth20.googlecode.com/svn/m2/releases</url>
 		</repository>
 	</repositories>
+	<modules>
+		<module>vk-api-client</module>
+	</modules>
 </project>
