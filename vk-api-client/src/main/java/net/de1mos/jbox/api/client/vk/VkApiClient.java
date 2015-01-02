@@ -16,6 +16,7 @@ import net.de1mos.jbox.api.client.vk.core.VKUser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class VkApiClient {
 
@@ -79,6 +80,39 @@ public class VkApiClient {
 			e.printStackTrace();
 		}
 		return token;
+	}
+	
+	public VKUser getCurrentVKUserInfo(VKAuthToken token)
+	{
+		String[] fields = {"Username"};
+		
+		VKUser vkuser = null;
+		
+		try {
+			VKHttpClient httpClient = getHttpClient();
+			
+			URL userUrl = urlGenerator.getUserInfoUrl(token.getTokenString(),token.getUser_id().toString(),fields);
+			
+			String jsonResponse = httpClient.executeRequest(userUrl);
+			
+			ObjectMapper mapper = new ObjectMapper();
+			
+			JsonNode rootNode = mapper.readTree(jsonResponse);
+			
+			ObjectNode node = (ObjectNode) rootNode.get("response").get(0);
+			
+			String fname = node.get("first_name").asText();
+			String lname = node.get("last_name").asText();
+			
+			vkuser = new VKUser(token,String.format("%s %s",fname,lname));
+			
+		} catch (URISyntaxException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return vkuser;
+		
 	}
 	
 	public ArrayList<String> searchMusic(String searchRequest,VKUser user)

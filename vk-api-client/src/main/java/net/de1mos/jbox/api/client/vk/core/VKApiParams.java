@@ -7,7 +7,11 @@ public enum VKApiParams {
 	REDIRECT_URI("redirect_uri"), 
 	RESPONSE_TYPE("response_type"),
 	CLIENT_SECRET("client_secret"), 
-	CODE("code");
+	CODE("code"),
+	ACCESS_TOKEN("access_token"),
+	USERIDS("uids"),
+	FIELDS("fields");
+	
 
 	private final String value;
 

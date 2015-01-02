@@ -55,7 +55,7 @@ public class HelloController {
 		{
 			VKAuthToken token = apiClient.getOAuthToken(code);
 			
-			VKUser user = new VKUser(token,"noname");
+			VKUser user = apiClient.getCurrentVKUserInfo(token);
 			
 			request.getSession().setAttribute("VK_USER", user);
 			

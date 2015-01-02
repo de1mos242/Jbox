@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import net.de1mos.jbox.api.client.vk.core.VKApiMethods;
 import net.de1mos.jbox.api.client.vk.core.VKApiParams;
 import net.de1mos.jbox.api.client.vk.core.VKApplicationCredential;
 
@@ -68,6 +69,17 @@ public class VKApiURL {
 		}
 		
 		return StringUtils.join(paramsStringList,"&");
+	}
+
+	public URL getUserInfoUrl(String token, String userId, String[] fields) throws MalformedURLException, UnsupportedEncodingException {
+		
+		ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+		
+		params.add(createParam(VKApiParams.ACCESS_TOKEN,token));
+		params.add(createParam(VKApiParams.USERIDS,userId));
+		params.add(createParam(VKApiParams.FIELDS,StringUtils.join(fields,",")));
+		
+		return new URL(METHOD_URI+VKApiMethods.GET_USER.toString()+"?"+getGETParamsString(params));
 	}
 
 }
