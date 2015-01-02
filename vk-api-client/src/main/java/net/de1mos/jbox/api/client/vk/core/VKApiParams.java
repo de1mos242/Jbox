@@ -10,7 +10,8 @@ public enum VKApiParams {
 	CODE("code"),
 	ACCESS_TOKEN("access_token"),
 	USERIDS("uids"),
-	FIELDS("fields");
+	FIELDS("fields"),
+	QUERY("q");
 	
 
 	private final String value;

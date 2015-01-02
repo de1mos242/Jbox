@@ -64,6 +64,10 @@ public class VKApiURL {
 		ArrayList<String> paramsStringList = new ArrayList<String>();
 		
 		for (NameValuePair nameValuePair : params) {
+			if (nameValuePair.getValue()==null)
+			{
+				continue;
+			}
 			String value = URLEncoder.encode(nameValuePair.getValue(),"UTF-8");
 			paramsStringList.add(String.format("%s=%s",nameValuePair.getName(),value));
 		}
@@ -80,6 +84,16 @@ public class VKApiURL {
 		params.add(createParam(VKApiParams.FIELDS,StringUtils.join(fields,",")));
 		
 		return new URL(METHOD_URI+VKApiMethods.GET_USER.toString()+"?"+getGETParamsString(params));
+	}
+	
+	public URL searchAudio(String token, String query) throws MalformedURLException, UnsupportedEncodingException {
+		
+		ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+		
+		params.add(createParam(VKApiParams.ACCESS_TOKEN,token));
+		params.add(createParam(VKApiParams.QUERY,query));
+		
+		return new URL(METHOD_URI+VKApiMethods.AUDIO_SEARCH.toString()+"?"+getGETParamsString(params));
 	}
 
 }

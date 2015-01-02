@@ -2,12 +2,14 @@ package net.de1mos.jbox.webclient.controllers;
 
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 
+import net.de1mos.jbox.api.client.vk.VKMusicTrack;
 import net.de1mos.jbox.api.client.vk.VkApiClient;
 import net.de1mos.jbox.api.client.vk.core.VKAuthToken;
 import net.de1mos.jbox.api.client.vk.core.VKUser;
@@ -40,6 +42,23 @@ public class HelloController {
 		model.addAttribute("VKUser", vk);
 		
 		System.out.println(vk);
+		
+		return "hello";
+	}
+	
+	@RequestMapping("/searchAudio")
+	public String searchAudio(HttpServletRequest request,
+			ModelMap model) {
+		
+		HttpSession session = request.getSession();
+		VKUser vk = (VKUser) session.getAttribute("VK_USER");
+		
+		String query = (String) request.getAttribute("searchQuery");
+		
+		ArrayList<VKMusicTrack> musicList = apiClient.searchMusic(query, vk);
+		
+		model.addAttribute("musicList", musicList);
+		model.addAttribute("VKUser", vk);
 		
 		return "hello";
 	}

@@ -1,7 +1,8 @@
 package net.de1mos.jbox.api.client.vk.core;
 
 public enum VKApiMethods {
-	GET_USER("users.get");
+	GET_USER("users.get"),
+	AUDIO_SEARCH("audio.search");
 	
 	private final String value;
 
