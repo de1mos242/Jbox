@@ -53,7 +53,7 @@ public class HelloController {
 		HttpSession session = request.getSession();
 		VKUser vk = (VKUser) session.getAttribute("VK_USER");
 		
-		String query = (String) request.getAttribute("searchQuery");
+		String query = (String) request.getParameter("searchQuery");
 		
 		ArrayList<VKMusicTrack> musicList = apiClient.searchMusic(query, vk);
 		
@@ -67,8 +67,6 @@ public class HelloController {
 	public String vksign(HttpServletRequest request) {
 		
 		String code = request.getParameter("code");
-		
-		System.out.println("AUTH CODE "+code);
 		
 		if (code!=null)
 		{
