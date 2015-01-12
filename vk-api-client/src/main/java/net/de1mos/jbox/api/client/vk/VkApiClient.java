@@ -22,10 +22,6 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class VkApiClient {
 
-	private final String appId;
-	private final String appKey;
-	private final String responseUri;
-
 	private HttpClientWrapper clientWrapper;
 
 	private VKApiURL urlGenerator;
@@ -33,9 +29,6 @@ public class VkApiClient {
 	public VkApiClient(VKApplicationCredential credential,
 			HttpClientWrapper wrapper) {
 		super();
-		this.appId = credential.getAppId();
-		this.appKey = credential.getAppKey();
-		this.responseUri = credential.getResponseUri();
 
 		this.clientWrapper = wrapper;
 

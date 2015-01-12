@@ -67,21 +67,5 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>3.2.4.RELEASE</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>ru.0agr</groupId>
-			<artifactId>vkontakte-http-api</artifactId>
-			<version>0.2</version>
-		</dependency>
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>java-vk-oauth20.googlecode.com</id>
-			<url>http://java-vk-oauth20.googlecode.com/svn/m2/releases</url>
-		</repository>
-	</repositories>
-	<modules>
-		<module>vk-api-client</module>
-	</modules>
 </project>

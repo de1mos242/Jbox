@@ -12,8 +12,6 @@ import net.de1mos.jbox.api.client.vk.core.VKApplicationCredential;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
 
 public class VKApiURL {
