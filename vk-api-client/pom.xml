@@ -5,6 +5,7 @@
 		<groupId>net.de1mos.jukebox</groupId>
 		<artifactId>main</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>vk-api-client</artifactId>
 	<dependencies>
