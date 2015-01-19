@@ -23,6 +23,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 				<user name="user1" password="1111" authorities="ROLE_USER" />
 				<user name="user2" password="2222" disabled="true" authorities="ROLE_USER" />
 			</user-service>
+			<jdbc-user-service data-source-ref="dataSource" users-by-username-query=""/>
 		</authentication-provider>
 	</authentication-manager>
 
