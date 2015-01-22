@@ -6,7 +6,7 @@ http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<http access-denied-page="/error403.jsp">
-		<intercept-url pattern="/hello" access="ROLE_ANONYMOUS" />
+		<intercept-url pattern="/hello" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER" />
 		<intercept-url pattern="/admin*" access="ROLE_ADMIN" />
 		<form-login login-page="/login.jsp" default-target-url="/hello"
 			authentication-failure-url="/login.jsp?error=true" />
@@ -18,12 +18,14 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
-				<user name="admin" password="pass" authorities="ROLE_ADMIN,ROLE_USER" />
-				<user name="user1" password="1111" authorities="ROLE_USER" />
-				<user name="user2" password="2222" disabled="true" authorities="ROLE_USER" />
-			</user-service>
-			<jdbc-user-service data-source-ref="dataSource" users-by-username-query=""/>
+<!-- 			<user-service> -->
+<!-- 				<user name="admin" password="pass" authorities="ROLE_ADMIN,ROLE_USER" /> -->
+<!-- 				<user name="user1" password="1111" authorities="ROLE_USER" /> -->
+<!-- 				<user name="user2" password="2222" disabled="true" authorities="ROLE_USER" /> -->
+<!-- 			</user-service> -->
+			<jdbc-user-service data-source-ref="dataSource" users-by-username-query="SELECT name,password,active FROM &quot;user&quot; WHERE name=?"
+			authorities-by-username-query="SELECT u.name,r.name FROM &quot;user&quot; u, &quot;role&quot; r WHERE u.&quot;role&quot; = r.id AND u.name = ?"
+			role-prefix="ROLE_"/>
 		</authentication-provider>
 	</authentication-manager>
 
