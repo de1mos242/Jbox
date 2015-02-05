@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="f" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en" ng-app>
 <head>
@@ -15,6 +16,12 @@
 <script type="text/javascript" src=${appJS} }></script>
 </head>
 <body>
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<a href="<c:url value='/admin' />">admin</a>	
+	</sec:authorize>
+	<sec:authorize access="isAnonymous()">
+		<a href="<c:url value='/admin' />">sign in</a>	
+	</sec:authorize>
 	hello
 	<c:choose>
 		<c:when test="${not empty VKUser}">
@@ -24,7 +31,7 @@
 
 		<c:otherwise>
 			<div>
-				<a href="vk/sign">войти</a>
+				<a href="vk/sign">войти vk</a>
 			</div>
 		</c:otherwise>
 	</c:choose>

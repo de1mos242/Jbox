@@ -28,5 +28,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 			role-prefix="ROLE_"/>
 		</authentication-provider>
 	</authentication-manager>
+	
+	<beans:bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 
 </beans:beans>
